@@ -1,6 +1,8 @@
 <script>
 export default {
-
+    props: {
+        // PASSARE PROPS DA CICLO V-FOR IN APP-MAIN 
+    }
 }
 </script>
 

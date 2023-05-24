@@ -5,7 +5,12 @@ export default {
             SearchBar: "",
         }
     },
-}
+    methods: {
+        emitSearchBar() {
+            this.$emit('performSearch');
+        },
+    },
+};
 </script>
 
 <template>
