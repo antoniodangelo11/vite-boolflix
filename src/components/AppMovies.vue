@@ -1,29 +1,22 @@
 <script>
 export default {
     props: {
-        title: String,
-        original_title: String,
-        original_language: String,
-        vote_average: Number,
+        DataMovies: Object,
     },
 };
 </script>
 
 <template>
-    <div>
-        <div>
-            {{ title }}
-        </div>
-        <div>
-            {{ original_title }}
-        </div>
-        <div>
-            {{ original_language }}
-        </div>
-        <div>
-            {{ vote_average }}
-        </div>
+    <div class="card_movies">
+        <div class="title">{{ DataMovies.title }}</div>
+        <div class="original_title">{{ DataMovies.original_title }}</div>
+        <div class="original_movies">{{ DataMovies.original_language }}</div>
+        <div class="vote_average">{{ DataMovies.vote_average }}</div>
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.card_movies {
+    border: 1px solid black;
+}
+</style>

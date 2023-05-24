@@ -1,29 +1,21 @@
 <script>
 export default {
     props: {
-        name: String,
-        original_name: String,
-        original_language: String,
-        vote_average: Number,
+        DataTvSeries: Object,
     },
 };
 </script>
 
 <template>
-    <div>
-        <div>
-            {{ name }}
-        </div>
-        <div>
-            {{ original_name }}
-        </div>
-        <div>
-            {{ original_language }}
-        </div>
-        <div>
-            {{ vote_average }}
-        </div>
+    <div class="card_series">
+        <div>{{ DataTvSeries.name }}</div>
+        <div>{{ DataTvSeries.original_name }}</div>
+        <div>{{ DataTvSeries.original_language }}</div>
+        <div>{{ DataTvSeries.vote_average }}</div>
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.card_series {
+    border: 1px solid black;
+}</style>

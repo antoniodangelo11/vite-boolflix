@@ -50,6 +50,8 @@ export default {
 </template>
 
 <style lang="scss">
+@import "/node_modules/flag-icons/css/flag-icons.min.css";
+
 * {
   margin: 0;
   padding: 0;
