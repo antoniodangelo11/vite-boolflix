@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-  <AppHeader />
+  <AppHeader @performSearch="" />
   <AppMain />
   <AppListCard />
 </template>
