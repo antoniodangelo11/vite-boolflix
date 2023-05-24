@@ -18,8 +18,8 @@ export default {
         <div class="flex_container">
             <h1>BOOLFLIX</h1>
             <div class="search">
-                <input type="text">
-                <button>SEARCH</button>
+                <input type="text" placeholder="Cerca Film o SerieTV" v-model="SearchBar" @keyup.enter="emitSearchBar">
+                <button @click="emitSearchBar">SEARCH</button>
             </div>
         </div>
     </header>

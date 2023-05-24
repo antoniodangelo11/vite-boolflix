@@ -1,6 +1,6 @@
 <script>
 import { store } from '../store';
-import AppListCard from './AppListCard.vue';
+import AppCard from './AppCard.vue';
 
 export default {
     data() {
@@ -9,21 +9,26 @@ export default {
         };
     },
     components: {
-        AppListCard,
-    }
+        AppCard,
+    },
 };
 </script>
 
 <template>
-    <div>
-        <!-- FARE CICLO V-FOR PER MOVIE -->
-        <AppListCard />
-    </div>
+    <div class="main_container">
 
-    <div>
+        <AppCard v-for="movies in store.ArrMovies" :key="movies.id" :title="movies.title"
+            :original_language="movies.original_language" :vote_average="movies.vote_average"
+            :original_title="movies.original_title" />
+
         <!-- FARE CICLO V-FOR PER SERIE-TV -->
-        <AppListCard />
+
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.main_container {
+    background-color: grey;
+    height: 100%;
+}
+</style>

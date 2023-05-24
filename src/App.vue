@@ -1,7 +1,7 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
-import AppListCard from './components/AppListCard.vue';
+import AppCard from './components/AppCard.vue';
 import axios from 'axios';
 import { store } from './store';
 
@@ -15,19 +15,22 @@ export default {
   components: {
     AppHeader,
     AppMain,
-    AppListCard,
+    AppCard,
   },
 
   methods: {
-
+    RequestMoviesFromApi() {
+      axios
+        .get('https://api.themoviedb.org/3/search/movie?api_key=21df2f399925b36ce74442455c67fc8a&query=all',)
+        .then(response => (this.store.ArrMovies = response.data.results));
+    }
   },
-}
+};
 </script>
 
 <template>
-  <AppHeader @performSearch="" />
+  <AppHeader @performSearch="RequestMoviesFromApi" />
   <AppMain />
-  <AppListCard />
 </template>
 
 <style lang="scss">
