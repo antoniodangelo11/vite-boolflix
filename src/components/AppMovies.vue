@@ -15,10 +15,10 @@ export default {
             {{ title }}
         </div>
         <div>
-            {{ original_language }}
+            {{ original_title }}
         </div>
         <div>
-            {{ original_title }}
+            {{ original_language }}
         </div>
         <div>
             {{ vote_average }}

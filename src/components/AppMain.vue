@@ -9,10 +9,10 @@ export default {
             store,
         };
     },
+    
     components: {
         AppMovies,
         AppTvSeries,
-
     },
 };
 </script>
