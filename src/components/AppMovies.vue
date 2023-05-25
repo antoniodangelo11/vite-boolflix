@@ -24,7 +24,7 @@ export default {
         <img v-if="DataMovies.poster_path" :src="`http://image.tmdb.org/t/p/w342${DataMovies.poster_path}`"
             :alt="DataMovies.poster_path">
         <img v-else src="../assets/img/fallback-image.png" alt="">
-        <div>
+        <div class="text">
             <div class="title">
                 <span>TITOLO: </span>
                 {{ DataMovies.title }}
@@ -33,11 +33,11 @@ export default {
                 <span>TITOLO ORIGINALE: </span>
                 {{ DataMovies.original_title }}
             </div>
-            <div class="original_language">
+            <div class="language">
                 <span>LINGUA ORIGINALE: </span>
                 <lang-flag :iso="DataMovies.original_language" />
             </div>
-            <div class="vote_average">
+            <div class="vote">
                 <span>VOTO: </span>
                 <font-awesome-icon class="star" v-for="star in ConvertVote(DataMovies.vote_average)" :key="star"
                     :icon="['fas', 'star']" />
@@ -55,6 +55,11 @@ export default {
     border: 1px solid black;
     color: rgb(30, 41, 92);
     padding: 0.5rem;
+    margin: .5rem 1rem;
+}
+
+.text {
+    width: 342px;
 }
 
 .star {

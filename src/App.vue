@@ -41,6 +41,23 @@ export default {
         .then(response => (this.store.ArrTvSeries = response.data.results));
     }
   },
+  created() {
+    axios
+      .get('https://api.themoviedb.org/3/movie/popular', {
+        params: {
+          api_key: '21df2f399925b36ce74442455c67fc8a'
+        }
+      })
+      .then(response => (this.store.ArrMovies = response.data.results));
+
+    axios
+      .get('https://api.themoviedb.org/3/tv/popular', {
+        params: {
+          api_key: '21df2f399925b36ce74442455c67fc8a'
+        }
+      })
+      .then(response => (this.store.ArrTvSeries = response.data.results));
+  }
 };
 </script>
 
@@ -60,5 +77,6 @@ export default {
 
 html {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(211, 131, 131);
 }
 </style>

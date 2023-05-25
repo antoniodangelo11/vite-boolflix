@@ -24,7 +24,7 @@ export default {
         <img v-if="DataTvSeries.poster_path" :src="`http://image.tmdb.org/t/p/w342${DataTvSeries.poster_path}`"
             :alt="DataTvSeries.poster_path">
         <img v-else src="../assets/img/fallback-image.png" alt="">
-        <div>
+        <div class="text">
             <div class="name">
                 <span>TITOLO: </span>
                 {{ DataTvSeries.name }}
@@ -56,6 +56,11 @@ export default {
     border: 1px solid black;
     color: rgb(30, 41, 92);
     padding: 0.5rem;
+    margin: .5rem 1rem;
+}
+
+.text {
+    width: 342px;
 }
 
 .star {
