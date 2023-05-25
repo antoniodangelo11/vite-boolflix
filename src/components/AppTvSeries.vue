@@ -29,12 +29,9 @@ export default {
                 <span>TITOLO: </span>
                 {{ DataTvSeries.name }}
             </div>
-            <div class="original_name" v-if="DataTvSeries.original_name !== DataTvSeries.name">
+            <div class="original_name" v-show="DataTvSeries.original_name !== DataTvSeries.name">
                 <span>TITOLO ORIGINALE: </span>
                 {{ DataTvSeries.original_name }}
-            </div>
-            <div v-else="DataTvSeries.original_name == DataTvSeries.name">
-                {{ '' }}
             </div>
             <div class="language">
                 <span>LINGUA ORIGINALE: </span>

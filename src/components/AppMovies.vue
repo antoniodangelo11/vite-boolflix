@@ -29,12 +29,9 @@ export default {
                 <span>TITOLO: </span>
                 {{ DataMovies.title }}
             </div>
-            <div class="original_title" v-if="DataMovies.original_title !== DataMovies.title">
+            <div class="original_title" v-show="DataMovies.original_title !== DataMovies.title">
                 <span>TITOLO ORIGINALE: </span>
                 {{ DataMovies.original_title }}
-            </div>
-            <div v-else="DataMovies.original_title == DataMovies.title">
-                {{ '' }}
             </div>
             <div class="original_language">
                 <span>LINGUA ORIGINALE: </span>
