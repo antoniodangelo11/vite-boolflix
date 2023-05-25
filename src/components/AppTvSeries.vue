@@ -58,7 +58,6 @@ export default {
 .card_series {
     color: rgb(30, 41, 92);
     position: relative;
-    margin-bottom: 1rem;
 }
 
 .text {
