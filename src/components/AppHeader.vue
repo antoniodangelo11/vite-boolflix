@@ -21,11 +21,11 @@ export default {
         <div class="flex_container">
             <h1>BOOLFLIX</h1>
             <form class="search" @submit.prevent="emitSearchBar">
-                <input type="text" 
-                    placeholder="Cerca Film o SerieTV" 
-                    v-model="store.SearchBar"
-                >
+                <input type="text" placeholder="Cerca Film o SerieTV" v-model="store.SearchBar">
                 <button>CERCA</button>
+                <div>
+                    <small class="error" v-show="store.InputError">Devi scrivere qualcosa!</small>
+                </div>
             </form>
         </div>
     </header>
@@ -48,6 +48,10 @@ export default {
         input {
             margin-right: 1rem;
         }
+    }
+
+    .error {
+        color: red;
     }
 }
 </style>

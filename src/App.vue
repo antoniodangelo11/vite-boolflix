@@ -22,23 +22,29 @@ export default {
 
   methods: {
     RequestDataToApi() {
-      axios
-        .get('https://api.themoviedb.org/3/search/movie', {
-          params: {
-            api_key: '21df2f399925b36ce74442455c67fc8a',
-            query: this.store.SearchBar,
-          }
-        })
-        .then(response => (this.store.ArrMovies = response.data.results));
+      if (store.SearchBar == '') {
+        this.store.InputError = true
+      } else {
+        this.store.InputError = false
+        axios
+          .get('https://api.themoviedb.org/3/search/movie', {
+            params: {
+              api_key: '21df2f399925b36ce74442455c67fc8a',
+              query: this.store.SearchBar,
+            }
+          })
+          .then(response => (this.store.ArrMovies = response.data.results));
 
-      axios
-        .get('https://api.themoviedb.org/3/search/tv', {
-          params: {
-            api_key: '21df2f399925b36ce74442455c67fc8a',
-            query: this.store.SearchBar,
-          }
-        })
-        .then(response => (this.store.ArrTvSeries = response.data.results));
+        axios
+          .get('https://api.themoviedb.org/3/search/tv', {
+            params: {
+              api_key: '21df2f399925b36ce74442455c67fc8a',
+              query: this.store.SearchBar,
+            }
+          })
+          .then(response => (this.store.ArrTvSeries = response.data.results));
+      }
+
     }
   },
   created() {
