@@ -77,6 +77,5 @@ export default {
 
 html {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(211, 131, 131);
 }
 </style>

@@ -21,9 +21,11 @@ export default {
 
 <template>
     <div class="card_movies">
-        <img v-if="DataMovies.poster_path" :src="`http://image.tmdb.org/t/p/w342${DataMovies.poster_path}`"
-            :alt="DataMovies.poster_path">
-        <img v-else src="../assets/img/fallback-image.png" alt="">
+        <div class="image-container">
+            <img v-if="DataMovies.poster_path" :src="`http://image.tmdb.org/t/p/w342${DataMovies.poster_path}`"
+                :alt="DataMovies.poster_path">
+            <img v-else src="../assets/img/fallback-image.png" alt="">
+        </div>
         <div class="text">
             <div class="title">
                 <span>TITOLO: </span>
@@ -46,20 +48,49 @@ export default {
                         v-if="ConvertVote(DataMovies.vote_average) < 5" />
                 </template>
             </div>
+            <div class="overview">
+                <span>OVERVIEW: </span>
+                {{ DataMovies.overview }}
+            </div>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
 .card_movies {
-    border: 1px solid black;
     color: rgb(30, 41, 92);
-    padding: 0.5rem;
-    margin: .5rem 1rem;
+    position: relative;
+    margin-bottom: 1rem;
 }
 
 .text {
     width: 342px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: opacity 0.3s ease;
+}
+
+.card_movies:hover .text {
+    opacity: 1;
+}
+
+.card_movies .image-container {
+    position: relative;
+    height: auto;
+    width: 100%;
+}
+
+.card_movies .image-container img {
+    transition: opacity 0.3s ease;
+}
+
+.card_movies:hover .image-container img {
+    opacity: 0;
 }
 
 .star {

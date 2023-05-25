@@ -32,10 +32,8 @@ export default {
 
 <style lang="scss" scoped>
 .cards_container {
-    background-color: grey;
+    background-color: rgb(211, 211, 211);
     padding: 2rem;
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .movies {

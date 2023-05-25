@@ -45,7 +45,10 @@ export default {
                     <font-awesome-icon class="star" :key="star" :icon="['far', 'star']"
                         v-if="ConvertVote(DataTvSeries.vote_average) < 5" />
                 </template>
-
+            </div>
+            <div class="overview">
+                <span>OVERVIEW: </span>
+                {{ DataTvSeries.overview }}
             </div>
         </div>
     </div>
@@ -53,14 +56,37 @@ export default {
 
 <style lang="scss" scoped>
 .card_series {
-    border: 1px solid black;
     color: rgb(30, 41, 92);
-    padding: 0.5rem;
-    margin: .5rem 1rem;
+    position: relative;
+    margin-bottom: 1rem;
 }
 
 .text {
     width: 342px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: opacity 0.3s ease;
+}
+
+.card_series:hover .text {
+    opacity: 1;
+}
+
+.card_series .image-container {
+    position: relative;
+}
+
+.card_series .image-container img {
+    transition: opacity 0.3s ease;
+}
+
+.card_series:hover .image-container img {
+    opacity: 0;
 }
 
 .star {
