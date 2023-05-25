@@ -40,7 +40,6 @@ export default {
 .cards_container {
     background-color: grey;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 1.2rem;
 }

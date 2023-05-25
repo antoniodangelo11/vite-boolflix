@@ -1,4 +1,6 @@
 <script>
+import LangFlag from 'vue-lang-code-flags';
+
 export default {
     methods: {
         ConvertVote(vote) {
@@ -6,6 +8,11 @@ export default {
             return convertedVote;
         },
     },
+
+    components: {
+        LangFlag,
+    },
+
     props: {
         DataMovies: Object,
     },
@@ -22,13 +29,16 @@ export default {
                 <span>TITOLO: </span>
                 {{ DataMovies.title }}
             </div>
-            <div class="original_title">
+            <div class="original_title" v-if="DataMovies.original_title !== DataMovies.title">
                 <span>TITOLO ORIGINALE: </span>
                 {{ DataMovies.original_title }}
             </div>
+            <div v-else="DataMovies.original_title == DataMovies.title">
+                {{ '' }}
+            </div>
             <div class="original_language">
                 <span>LINGUA ORIGINALE: </span>
-                {{ DataMovies.original_language }}
+                <lang-flag :iso="DataMovies.original_language" />
             </div>
             <div class="vote_average">
                 <span>VOTO: </span>

@@ -1,4 +1,6 @@
 <script>
+import LangFlag from 'vue-lang-code-flags';
+
 export default {
     methods: {
         ConvertVote(vote) {
@@ -6,6 +8,11 @@ export default {
             return convertedVote;
         },
     },
+
+    components: {
+        LangFlag,
+    },
+
     props: {
         DataTvSeries: Object,
     },
@@ -22,13 +29,16 @@ export default {
                 <span>TITOLO: </span>
                 {{ DataTvSeries.name }}
             </div>
-            <div class="original_name">
+            <div class="original_name" v-if="DataTvSeries.original_name !== DataTvSeries.name">
                 <span>TITOLO ORIGINALE: </span>
                 {{ DataTvSeries.original_name }}
             </div>
+            <div v-else="DataTvSeries.original_name == DataTvSeries.name">
+                {{ '' }}
+            </div>
             <div class="language">
                 <span>LINGUA ORIGINALE: </span>
-                {{ DataTvSeries.original_language }}
+                <lang-flag :iso="DataTvSeries.original_language" />
             </div>
             <div class="vote">
                 <span>VOTO: </span>
