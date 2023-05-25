@@ -15,12 +15,4 @@ import { far } from "@fortawesome/free-regular-svg-icons";
 library.add(fas);
 library.add(far);
 
-
-
 createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");
-
-// ICONA PIENA
-/* <font-awesome-icon :icon="['fas', 'star']" /> */
-
-// ICONA VUOTA
-/* <font-awesome-icon :icon="['far', 'star']" /> */

@@ -9,7 +9,7 @@ export default {
             store,
         };
     },
-    
+
     components: {
         AppMovies,
         AppTvSeries,
@@ -21,18 +21,12 @@ export default {
     <div class="container">
         <div class="cards_container">
             <div class="movies">
-                <AppMovies 
-                    v-for="movies in store.ArrMovies" 
-                    :key="movies.id" 
-                    :DataMovies="movies"
-                />
+                <h2>MOVIES</h2>
+                <AppMovies v-for="movies in store.ArrMovies" :key="movies.id" :DataMovies="movies" />
             </div>
             <div class="series">
-                <AppTvSeries 
-                    v-for="series in store.ArrTvSeries" 
-                    :key="series.id" 
-                    :DataTvSeries="series"
-                />
+                <h2>SERIE TV</h2>
+                <AppTvSeries v-for="series in store.ArrTvSeries" :key="series.id" :DataTvSeries="series" />
             </div>
         </div>
     </div>
@@ -47,5 +41,7 @@ export default {
     background-color: grey;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
 }
 </style>
