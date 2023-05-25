@@ -15,6 +15,8 @@ import { far } from "@fortawesome/free-regular-svg-icons";
 library.add(fas);
 library.add(far);
 
+
+
 createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");
 
 // ICONA PIENA

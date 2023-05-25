@@ -21,7 +21,7 @@ export default {
   },
 
   methods: {
-    RequestDataFromApi() {
+    RequestDataToApi() {
       axios
         .get('https://api.themoviedb.org/3/search/movie', {
           params: {
@@ -45,7 +45,7 @@ export default {
 </script>
 
 <template>
-  <AppHeader @performSearch="RequestDataFromApi" />
+  <AppHeader @performSearch="RequestDataToApi" />
   <AppMain />
 </template>
 

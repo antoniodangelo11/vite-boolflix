@@ -20,10 +20,13 @@ export default {
     <header>
         <div class="flex_container">
             <h1>BOOLFLIX</h1>
-            <div class="search">
-                <input type="text" placeholder="Cerca Film o SerieTV" v-model="store.SearchBar" @keyup.enter="emitSearchBar">
-                <button @click="emitSearchBar">CERCA</button>
-            </div>
+            <form class="search" @submit.prevent="emitSearchBar">
+                <input type="text" 
+                    placeholder="Cerca Film o SerieTV" 
+                    v-model="store.SearchBar"
+                >
+                <button>CERCA</button>
+            </form>
         </div>
     </header>
 </template>
