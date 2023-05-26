@@ -45,6 +45,27 @@ export default {
           .then(response => (this.store.ArrTvSeries = response.data.results));
       }
 
+    },
+
+    RequestGenresFromApi() {
+      axios
+        .get('https://api.themoviedb.org/3/genre/movie/list', {
+          params: {
+            api_key: '21df2f399925b36ce74442455c67fc8a',
+          }
+        })
+        .then(response => (this.store.ArrGenres = response.data));
+    },
+
+    filterGenresFromApi() {
+      axios
+        .get('https://api.themoviedb.org/3/genre/movie/list', {
+          params: {
+            api_key: '21df2f399925b36ce74442455c67fc8a',
+            name: this.store.SearchGenres,
+          }
+        })
+        .then(response => (this.store.ArrMovies = response.data.genres));
     }
   },
   created() {
@@ -69,7 +90,7 @@ export default {
 </script>
 
 <template>
-  <AppHeader @performSearch="RequestDataToApi" />
+  <AppHeader @performSearch="RequestDataToApi" @performGenres="filterGenresFromApi" />
   <AppMain />
 </template>
 

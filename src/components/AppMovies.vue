@@ -22,16 +22,9 @@ export default {
 <template>
     <div class="card_movies">
         <div class="image-container">
-            <img
-              :alt="DataMovies.poster_path"
-              :src="`http://image.tmdb.org/t/p/w342` + DataMovies.poster_path"
-              v-if="DataMovies.poster_path"
-            >
-            <img
-              alt=""
-              src="../assets/img/fallback-image.png"
-              v-else
-            >
+            <img :alt="DataMovies.poster_path" :src="`http://image.tmdb.org/t/p/w342` + DataMovies.poster_path"
+                v-if="DataMovies.poster_path">
+            <img alt="" src="../assets/img/fallback-image.png" v-else>
         </div>
         <div class="text">
             <div class="title">
@@ -49,19 +42,11 @@ export default {
             </div>
             <div class="vote">
                 <span>VOTO: </span>
-                <font-awesome-icon
-                  :icon="['fas', 'star']"
-                  :key="star"
-                  class="star"
-                  v-for="star in ConvertVote(DataMovies.vote_average)"
-                />
+                <font-awesome-icon :icon="['fas', 'star']" :key="star" class="star"
+                    v-for="star in ConvertVote(DataMovies.vote_average)" />
                 <template v-for="star in 5 - ConvertVote(DataMovies.vote_average)">
-                    <font-awesome-icon
-                      :icon="['far', 'star']"
-                      :key="star"
-                      class="star"
-                      v-if="ConvertVote(DataMovies.vote_average) < 5"
-                    />
+                    <font-awesome-icon :icon="['far', 'star']" :key="star" class="star"
+                        v-if="ConvertVote(DataMovies.vote_average) < 5" />
                 </template>
             </div>
             <div class="overview">
@@ -84,7 +69,6 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
     height: 100%;
     opacity: 0;
     background-color: rgba(255, 255, 255, 0.9);

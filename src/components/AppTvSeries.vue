@@ -21,11 +21,8 @@ export default {
 
 <template>
     <div class="card_series">
-        <img
-          :alt="DataTvSeries.poster_path"
-          :src="`http://image.tmdb.org/t/p/w342${DataTvSeries.poster_path}`"
-          v-if="DataTvSeries.poster_path"
-        >
+        <img :alt="DataTvSeries.poster_path" :src="`http://image.tmdb.org/t/p/w342${DataTvSeries.poster_path}`"
+            v-if="DataTvSeries.poster_path">
         <img v-else src="../assets/img/fallback-image.png" alt="">
         <div class="text">
             <div class="name">
@@ -69,7 +66,6 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
     height: 100%;
     opacity: 0;
     background-color: rgba(255, 255, 255, 0.9);
