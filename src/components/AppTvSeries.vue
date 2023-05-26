@@ -35,7 +35,7 @@ export default {
             </div>
             <div class="language">
                 <span>LINGUA ORIGINALE: </span>
-                <lang-flag :iso="DataTvSeries.original_language" />
+                <lang-flag :iso="DataTvSeries.original_language" :squared="false" />
             </div>
             <div class="vote">
                 <span>VOTO: </span>
@@ -58,6 +58,7 @@ export default {
 .card_series {
     color: rgb(30, 41, 92);
     position: relative;
+    margin: 1.5rem 1rem;
 }
 
 .text {
@@ -70,6 +71,10 @@ export default {
     opacity: 0;
     background-color: rgba(255, 255, 255, 0.9);
     transition: opacity 0.3s ease;
+
+    .overview {
+        font-size: .8em;
+    }
 }
 
 .card_series:hover .text {
@@ -92,3 +97,5 @@ export default {
     color: yellow;
 }
 </style>
+
+<lang-flag :iso="" />

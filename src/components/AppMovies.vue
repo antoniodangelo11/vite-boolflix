@@ -22,7 +22,7 @@ export default {
 <template>
     <div class="card_movies">
         <div class="image-container">
-            <img v-if="DataMovies.poster_path" :src="`http://image.tmdb.org/t/p/w342${DataMovies.poster_path}`"
+            <img v-if="DataMovies.poster_path" :src="`http://image.tmdb.org/t/p/w342` + DataMovies.poster_path"
                 :alt="DataMovies.poster_path">
             <img v-else src="../assets/img/fallback-image.png" alt="">
         </div>
@@ -37,7 +37,8 @@ export default {
             </div>
             <div class="language">
                 <span>LINGUA ORIGINALE: </span>
-                <lang-flag :iso="DataMovies.original_language" />
+                <lang-flag :iso="DataMovies.original_language" :squared="false" />
+                <span class="lang_text">{{ DataMovies.original_language }}</span>
             </div>
             <div class="vote">
                 <span>VOTO: </span>
@@ -60,6 +61,7 @@ export default {
 .card_movies {
     color: rgb(30, 41, 92);
     position: relative;
+    margin: 1.5rem 1rem;
 }
 
 .text {
@@ -72,6 +74,10 @@ export default {
     opacity: 0;
     background-color: rgba(255, 255, 255, 0.9);
     transition: opacity 0.3s ease;
+
+    .overview {
+        font-size: .8em;
+    }
 }
 
 .card_movies:hover .text {
@@ -94,5 +100,17 @@ export default {
 
 .star {
     color: yellow;
+}
+
+.lang_text {
+    display: none;
+}
+
+.flag-icon-undefined {
+    display: none;
+}
+
+.flag-icon-undefined+.lang_text {
+    display: inline;
 }
 </style>

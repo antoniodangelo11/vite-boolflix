@@ -32,17 +32,21 @@ export default {
 
 <style lang="scss" scoped>
 .cards_container {
-    background-color: rgb(211, 211, 211);
+    background-color: rgb(20, 20, 20);
     padding: 2rem;
+
+    h2 {
+        color: rgb(255, 255, 255);
+    }
 }
 
 .movies {
     display: flex;
-    overflow: auto;
+    overflow-y: auto;
 }
 
 .series {
     display: flex;
-    overflow: auto;
+    overflow-y: auto;
 }
 </style>
