@@ -21,7 +21,11 @@ export default {
         <div class="flex_container">
             <h1>BOOLFLIX</h1>
             <form class="search" @submit.prevent="emitSearchBar">
-                <input type="text" placeholder="Cerca Film o Serie TV" v-model="store.SearchBar">
+                <input
+                  placeholder="Cerca Film o Serie TV"
+                  type="text"
+                  v-model="store.SearchBar"
+                >
                 <button>CERCA</button>
                 <div>
                     <small class="error" v-show="store.InputError">Devi scrivere qualcosa!</small>

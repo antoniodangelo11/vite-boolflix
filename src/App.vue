@@ -63,6 +63,7 @@ export default {
         }
       })
       .then(response => (this.store.ArrTvSeries = response.data.results));
+
   }
 };
 </script>

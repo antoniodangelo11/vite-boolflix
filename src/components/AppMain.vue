@@ -21,11 +21,19 @@ export default {
     <div class="cards_container">
         <h2>FILM</h2>
         <div class="movies">
-            <AppMovies v-for="movies in store.ArrMovies" :key="movies.id" :DataMovies="movies" />
+            <AppMovies
+              :DataMovies="movies"
+              :key="movies.id"
+              v-for="movies in store.ArrMovies"
+            />
         </div>
         <h2>SERIE TV</h2>
         <div class="series">
-            <AppTvSeries v-for="series in store.ArrTvSeries" :key="series.id" :DataTvSeries="series" />
+            <AppTvSeries
+              :DataTvSeries="series"
+              :key="series.id"
+              v-for="series in store.ArrTvSeries"
+            />
         </div>
     </div>
 </template>
