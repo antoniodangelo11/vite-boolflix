@@ -12,11 +12,9 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 
 /* add icons to the library */
-library.add(fas);
-library.add(far);
+library.add(fas, far);
 
 createApp(App)
+  .component("font-awesome-icon", FontAwesomeIcon)
 
-.component("font-awesome-icon", FontAwesomeIcon)
-
-.mount("#app");
+  .mount("#app");

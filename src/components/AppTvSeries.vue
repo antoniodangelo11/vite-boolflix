@@ -1,12 +1,15 @@
 <script>
 import LangFlag from 'vue-lang-code-flags';
+import { store } from '../store';
+import axios from 'axios';
 
 export default {
-    methods: {
-        ConvertVote(vote) {
-            const convertedVote = Math.ceil((vote / 10) * 5);
-            return convertedVote;
-        },
+    data() {
+        return {
+            store,
+            ArrGenres: [],
+            ArrActors: [],
+        };
     },
 
     components: {
@@ -15,6 +18,40 @@ export default {
 
     props: {
         DataTvSeries: Object,
+    },
+
+    methods: {
+        ConvertVote(vote) {
+            const convertedVote = Math.ceil((vote / 10) * 5);
+            return convertedVote;
+        },
+    },
+
+    created() {
+        //generi
+        axios
+            .get(`https://api.themoviedb.org/3/tv/${this.DataTvSeries.id}`, {
+                params: {
+                    api_key: '21df2f399925b36ce74442455c67fc8a',
+                },
+            })
+            .then(response => {
+                this.ArrGenres = response.data.genres;
+            });
+
+
+        // attori
+        axios
+            .get(`https://api.themoviedb.org/3/tv/${this.DataTvSeries.id}/credits`, {
+                params: {
+                    api_key: '21df2f399925b36ce74442455c67fc8a',
+                },
+            })
+            .then(response => {
+                response.data.cast.splice(5);
+                this.ArrActors = response.data.cast;
+            });
+
     },
 };
 </script>
@@ -49,6 +86,18 @@ export default {
             <div class="overview">
                 <span>OVERVIEW: </span>
                 {{ DataTvSeries.overview }}
+            </div>
+            <div class="genres">
+                <span>GENERI: </span>
+                <div v-for="genres in ArrGenres" :key="genres.id">
+                    {{ genres.name }}
+                </div>
+            </div>
+            <div class="actors">
+                <span>ATTORI: </span>
+                <div v-for="actors in ArrActors" :key="actors.id">
+                    {{ actors.name }}
+                </div>
             </div>
         </div>
     </div>
